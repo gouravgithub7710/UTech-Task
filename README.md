@@ -26,32 +26,8 @@ The project contains a **Landing Page** and an **Admin Panel** as required in th
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS, JavaScript  
-- **Backend / Database:** Supabase (PostgreSQL + Storage)  
+- **Backend / Database:** Supabase (backend + database + storage)  
 - **Deployment:** Vercel  
-
----
-
-## 📁 Project Structure
-Utech-portfolio/
-│
-├── frontend/
-│   ├── index.html
-│   ├── css/
-│   │   └── style.css
-│   ├── js/
-│   │   └── script.js
-│   └── images/
-│       ├── logo.png
-│       ├── hero-bg-1.jpg
-│       ├── hero-bg-2.jpg
-│       └── hero-bg-3.jpg
-│
-├── backend/
-│   └── supabase-config.js
-│
-└── README.md
-
-
 ---
 
 ## 📸 Screenshots-UTech
