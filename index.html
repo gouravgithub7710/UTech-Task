@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTech - Digital Solutions</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVBAR (Only for Landing Page) -->
+    <nav class="navbar" id="mainNavbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">UT</div>
+                <span>UTech</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="btn-admin-nav" onclick="showAdmin()">Admin Panel</button></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- ADMIN NAVBAR -->
+    <nav class="navbar admin-navbar" id="adminNavbar" style="display: none;">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">UT</div>
+                <span>UTech Admin</span>
+            </div>
+            <ul class="nav-links admin-nav-links">
+                <li><button class="admin-nav-btn active" onclick="switchTabFromNav(event, 'projectsTab')">Add Project</button></li>
+                <li><button class="admin-nav-btn" onclick="switchTabFromNav(event, 'clientsTab')">Add Client</button></li>
+                <li><button class="admin-nav-btn" onclick="switchTabFromNav(event, 'contactsTab')">Contact Forms</button></li>
+                <li><button class="admin-nav-btn" onclick="switchTabFromNav(event, 'subscribersTab')">Subscribers</button></li>
+                <li><button class="btn-admin-nav" onclick="showLanding()">User Panel</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- LANDING PAGE -->
+    <div id="landingPage">
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="hero-bg active" style="background-image: url('images/photo-1.jpeg')"></div>
+            <div class="hero-bg" style="background-image: url('images/photo-3.jpeg')"></div>
+            <div class="hero-bg" style="background-image: url('images/photo-2.jpeg')"></div>
+            
+            <div class="hero-content">
+                <h1>Innovative IT Solutions</h1>
+                <p>Transforming Ideas Into Digital Reality</p>
+                <button class="btn-hero" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get Started</button>
+            </div>
+        </section>
+
+        <!-- OUR PROJECTS SECTION -->
+        <section class="container" id="projects">
+            <h2 class="section-title">Our Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- HAPPY CLIENTS SECTION -->
+        <section class="container clients-section" id="clients">
+            <h2 class="section-title">Happy Clients</h2>
+            <div class="clients-grid" id="clientsGrid"></div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="container faq-section" id="faq">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>What services does UTech provide?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        UTech specializes in web development, mobile app development, cloud solutions, AI integration, and digital transformation services. We provide end-to-end solutions tailored to your business needs.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>How long does it take to complete a project?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Project timelines vary based on complexity and requirements. A typical website takes 4-6 weeks, while complex applications may take 3-6 months. We provide detailed timelines during consultation.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>we provide post-launch support?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We offer comprehensive maintenance and support packages. This includes bug fixes, updates, security patches, and technical support to ensure your solution runs smoothly.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>What is our pricing model?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer flexible pricing based on project scope. This includes fixed-price projects, hourly rates, and monthly retainers. Contact us for a free consultation and customized quote.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>Can we work with existing systems?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! We specialize in integrating with existing systems, modernizing legacy applications, and ensuring seamless data migration. Our team has experience with various platforms and technologies.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">
+                        <span>How do I get started with UTech?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Simply fill out our contact form or schedule a free consultation. We'll discuss your requirements, provide recommendations, and create a detailed proposal for your project.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT FORM SECTION -->
+        <section class="container contact-section" id="contact">
+            <h2 class="section-title">Get a Free Consultation</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="full_name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" name="mobile" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" name="city" placeholder="Enter your city" required>
+                </div>
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="container newsletter-section">
+            <h2 class="section-title" style="color: white;">Subscribe to Our Newsletter</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Get the latest updates delivered to your inbox!</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About UTech</h3>
+                    <p>Leading IT solutions provider, transforming businesses through innovative technology and digital excellence.</p>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📷</a>
+                        <a href="#">💼</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#clients">Clients</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">Web Development</a>
+                    <a href="#">Mobile Apps</a>
+                    <a href="#">Cloud Solutions</a>
+                    <a href="#">AI Integration</a>
+                    <a href="#">Digital Marketing</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📧 info@utech.com</p>
+                    <p>📞 +91 123 456 7890</p>
+                    <p>📍 Indore, Madhya Pradesh, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UTech. All rights reserved. | Designed with ❤️ in India</p>
+            </div>
+        </footer>
+    </div>
+
+            <!-- ADMIN PANEL -->
+    <div id="adminPanel" class="admin-panel">
+        <div class="admin-container">
+
+            <!-- ADD PROJECT TAB -->
+            <div id="projectsTab" class="tab-content active">
+                <h2 style="margin-bottom: 30px; color: var(--dark);">Add New Project</h2>
+                <form class="admin-form" id="projectForm">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input type="text" name="name" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" placeholder="Enter project description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required>
+                        <small style="color: var(--text); display: block; margin-top: 5px;">Tip: Use Unsplash.com for free images</small>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Project</button>
+                </form>
+            </div>
+
+            <!-- ADD CLIENT TAB -->
+            <div id="clientsTab" class="tab-content">
+                <h2 style="margin-bottom: 30px; color: var(--dark);">Add New Client</h2>
+                <form class="admin-form" id="clientForm">
+                    <div class="form-group">
+                        <label>Client Name</label>
+                        <input type="text" name="name" placeholder="Enter client name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" name="designation" placeholder="e.g., CEO, Designer" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Review/Description</label>
+                        <textarea name="description" placeholder="Enter client testimonial" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Client</button>
+                </form>
+            </div>
+
+            <!-- CONTACTS TAB -->
+            <div id="contactsTab" class="tab-content">
+                <h2 style="margin-bottom: 30px; color: var(--dark);">Contact Form Submissions</h2>
+                <div id="contactsTable"></div>
+            </div>
+
+            <!-- SUBSCRIBERS TAB -->
+            <div id="subscribersTab" class="tab-content">
+                <h2 style="margin-bottom: 30px; color: var(--dark);">Newsletter Subscribers</h2>
+                <div id="subscribersTable"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast"></div>
+
+<script src="script.js"></script>  
+</body>
+</html>
